@@ -14,13 +14,11 @@ function Post(props) {
     console.log(props);
     // props에 author와 body만 있음.
     // uuid를 클라이언트 쪽으로 옮김 -> 이제 id까지 나옴. 
+    // let postId = props.id
+    // fetch(`http://localhost:3000/posts/${postId}`)
 
-    let dname = event.currentTarget.querySelector(
-      `.${classes.author}`
-    ).textContent;
-    let dbody = event.currentTarget.querySelector(
-      `.${classes.text}`
-    ).textContent;
+    let dname = event.currentTarget.querySelector(`.${classes.author}`).textContent;
+    let dbody = event.currentTarget.querySelector(`.${classes.text}`).textContent;
     let postdata = {
       name: dname,
       body: dbody,
