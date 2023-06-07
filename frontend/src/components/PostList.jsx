@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "./Modal";
 import NewPost from "./Newpost";
 import Post from "./Post";
@@ -6,6 +6,12 @@ import classes from "./Postlist.module.css";
 
 function PostList(props) {
   const [posts, setPosts] = useState([]);
+
+  useEffect(()=>{
+    fetch("http://localhost:5000/posts")
+    .then((res) => res.json())
+    .then((data) => setPosts(data))
+  })
 
   function addPostHandler(postData) {
     setPosts((oldPost) => [postData, ...oldPost]);
