@@ -8,11 +8,11 @@ const dummyData = dummy;
 const postController = {
 
     getAll:(req, res) => {
-      res.status(200).json(dummyData);
+      res.status(200).json(dummyData.dummy);
     },
 
     findById:(req, res) => {
-      dummyData.filter(data => {
+      dummyData.dummy.filter(data => {
         if (data.id === req.params) {
           return res.status(200).json(data);
         } else {
@@ -51,7 +51,9 @@ const newpostController = {
       if(err) {
         return res.status(500).json({error : 'Fail to read dummy'});
       }
-      let dummyData = JSON.parse(data).dummy;
+      // let dummyData = JSON.parse(data).dummy;
+      let dummyData = dummy.dummy;
+      console.log(dummyData);
       dummyData.unshift(newData);
 
       const jsonData = JSON.stringify({dummy: dummyData}, null, 2);
