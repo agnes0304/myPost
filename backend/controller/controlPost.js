@@ -1,3 +1,5 @@
+const { dummy } = require("../repo/dummy");
+const dummyData = dummy;
 const postController = {
 
     getAll:(req, res) => {
