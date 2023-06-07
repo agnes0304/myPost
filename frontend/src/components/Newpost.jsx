@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import classes from "./NewPost.module.css";
+import { v4 as uuidv4 } from 'uuid';
 
 function NewPost(props) {
   const [enteredBody, setBody] = useState("");
@@ -15,9 +16,11 @@ function NewPost(props) {
 
   function submitHandler(event) {
     event.preventDefault();
+    let uniqueId = uuidv4();
     const postData = {
       author: enteredAuthor,
       body: enteredBody,
+      id: uniqueId,
     };
     fetch("http://localhost:3000/newpost", {
       method: 'POST',

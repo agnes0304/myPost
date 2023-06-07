@@ -9,6 +9,12 @@ function Post(props) {
   const [isData, setisData] = useState(false);
 
   function viewMore(event) {
+    // 여기서 /posts/:id get요청을 보내면
+    // 근데 포스트 id를 어떻게 알아? 
+    console.log(props);
+    // props에 author와 body만 있음.
+    // uuid를 클라이언트 쪽으로 옮김 -> 이제 id까지 나옴. 
+
     let dname = event.currentTarget.querySelector(
       `.${classes.author}`
     ).textContent;

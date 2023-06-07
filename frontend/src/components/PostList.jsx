@@ -27,7 +27,7 @@ function PostList(props) {
 
       { posts.length > 0 && (<ul className={classes.posts}>
           {posts.map((post) => 
-          <Post key={post.author} author={post.author} body={post.body} />)}
+          <Post key={post.author} author={post.author} body={post.body} id={post.id} />)}
         </ul>)}
 
       {posts.length === 0 && (

@@ -1,5 +1,5 @@
 const { dummy } = require("../repo/dummy");
-const { v4: uuidv4 } = require('uuid');
+// const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 const path = require('path');
 const dummyData = dummy;
@@ -33,7 +33,8 @@ const postController = {
 
 const newpostController = {
   create: (req, res) => {
-    const newId = uuidv4();
+    // const newId = uuidv4();
+    const newId = req.body.id;
     const newAuthor = req.body.author;
     const newBody = req.body.body;
     const newData = {
