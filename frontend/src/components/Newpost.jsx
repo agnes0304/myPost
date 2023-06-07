@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import classes from "./NewPost.module.css";
 
 function NewPost(props) {
@@ -19,6 +19,19 @@ function NewPost(props) {
       author: enteredAuthor,
       body: enteredBody,
     };
+    fetch("http://localhost:3000/newpost", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postData)
+    })
+    .then((data) => {
+      console.log("서버가 말하길...", data);
+    })
+    .catch((err) => {
+      console.log("에러다 에러, ", err)
+    })
     props.onAddPost(postData);
     props.onCancel();
   }
